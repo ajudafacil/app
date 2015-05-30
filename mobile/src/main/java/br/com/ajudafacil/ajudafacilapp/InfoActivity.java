@@ -1,5 +1,6 @@
 package br.com.ajudafacil.ajudafacilapp;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -7,6 +8,8 @@ import android.view.MenuItem;
 
 
 public class InfoActivity extends ActionBarActivity {
+    SharedPreferences prefs = this.getSharedPreferences("ajudafacil", 0);
+    SharedPreferences.Editor editor = prefs.edit();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -3,6 +3,7 @@ package br.com.ajudafacil.ajudafacilapp;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -36,14 +37,16 @@ public class MainActivity extends ActionBarActivity {
         perfil_action.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent perfil = new Intent(getBaseContext(), PerfilActivity.class);
+                startActivity(perfil);
             }
         });
 
         info_action.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent info = new Intent(getBaseContext(), InfoActivity.class);
+                startActivity(info);
             }
         });
 
