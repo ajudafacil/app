@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="profile">Perfil</string>
+    <string name="info">Informações</string>
+    <string name="emergency">Emergência</string>
 </resources>
