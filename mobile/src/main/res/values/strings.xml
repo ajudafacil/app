@@ -3,4 +3,10 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="profile">Perfil</string>
+    <string name="info">Informações</string>
+    <string name="emergency">Emergência</string>
+    <string name="emergency_message">Você tem certeza que deseja pedir socorro?</string>
+    <string name="title_activity_perfil">PerfilActivity</string>
+    <string name="title_activity_info">InfoActivity</string>
 </resources>

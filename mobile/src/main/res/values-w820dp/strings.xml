@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile">Perfil</string>
+    <string name="info">Informações</string>
+    <string name="emergency">Emergência</string>
+    <string name="emergency_message">Você tem certeza que deseja pedir socorro?</string>
+</resources>
