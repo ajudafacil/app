@@ -27,6 +27,7 @@ public class PerfilActivity extends ActionBarActivity {
 
     Spinner fieldSpinner;
     EditText fieldNome;
+    EditText fieldMensagem;
     ListView listTelefones;
     ListView listDoencas;
 
@@ -43,12 +44,16 @@ public class PerfilActivity extends ActionBarActivity {
 
         fieldSpinner = (Spinner) findViewById(R.id.spinner);
         fieldNome = (EditText) findViewById(R.id.editText);
+        fieldMensagem = (EditText) findViewById(R.id.editText2);
         listTelefones = (ListView) findViewById(R.id.listTelefones);
         listDoencas = (ListView) findViewById(R.id.listDoencas);
 
         ArrayAdapter<String> tiposSanguineosAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, tiposSanguineos);
         tiposSanguineosAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fieldSpinner.setAdapter(tiposSanguineosAdapter);
+
+        fieldNome.setText(nome);
+        fieldMensagem.setText(mensagem);
 
         try {
 

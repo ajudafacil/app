@@ -55,14 +55,29 @@
                 android:id="@+id/spinner"
                 android:spinnerMode="dialog" />
 
-            <TextView
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Telefones"
-                android:id="@+id/textView4"
-                android:textSize="20sp"
-                android:layout_margin="10dp"
-                android:textStyle="bold" />
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Telefones"
+                    android:id="@+id/textView4"
+                    android:textSize="20sp"
+                    android:layout_margin="10dp"
+                    android:textStyle="bold"
+                    android:layout_weight="1" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adicionar"
+                    android:id="@+id/button2"
+                    android:layout_weight="0" />
+            </LinearLayout>
 
             <ListView
                 android:layout_width="wrap_content"
@@ -85,14 +100,28 @@
                 android:ems="10"
                 android:id="@+id/editText2" />
 
-            <TextView
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Telefones"
-                android:id="@+id/textView5"
-                android:textSize="20sp"
-                android:layout_margin="10dp"
-                android:textStyle="bold" />
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Doenças"
+                    android:id="@+id/textView5"
+                    android:textSize="20sp"
+                    android:layout_margin="10dp"
+                    android:textStyle="bold"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adicionar"
+                    android:id="@+id/button"
+                    android:layout_weight="0" />
+            </LinearLayout>
 
             <ListView
                 android:layout_width="fill_parent"
