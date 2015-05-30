@@ -3,8 +3,11 @@ package br.com.ajudafacil.ajudafacilapp;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import org.json.JSONArray;
 
 
 public class InfoActivity extends ActionBarActivity {
@@ -15,6 +18,16 @@ public class InfoActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
+
+
+        try {
+            JSONArray jsonArray2 = new JSONArray(prefs.getString("key", "[]"));
+            for (int i = 0; i < jsonArray2.length(); i++) {
+                Log.d("your JSON Array", jsonArray2.getInt(i) + "");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
