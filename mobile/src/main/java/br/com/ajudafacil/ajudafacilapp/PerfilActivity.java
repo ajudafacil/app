@@ -3,43 +3,70 @@ package br.com.ajudafacil.ajudafacilapp;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
 
 import org.json.JSONArray;
 
+import java.util.ArrayList;
+
 
 public class PerfilActivity extends ActionBarActivity {
-    SharedPreferences prefs = this.getSharedPreferences("ajudafacil", 0);
-    SharedPreferences.Editor editor = prefs.edit();
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
     String nome;
     String mensagem;
     String tipoSanguineo;
-    String[] telefones;
-    String[] doencas;
+    ArrayList<String> telefones = new ArrayList<String>();
+    ArrayList<String> doencas = new ArrayList<String>();
+    String[] tiposSanguineos = {"AB+", "AB-", "A+", "A-", "B+", "B-", "O+", "O-"};
 
-    private String[] tiposSanguineos = {"AB+", "AB-", "A+", "A-", "B+", "B-", "O+", "O-"};
+    Spinner fieldSpinner;
+    EditText fieldNome;
+    ListView listTelefones;
+    ListView listDoencas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
+        prefs = getSharedPreferences("ajudafacil", 0);
+        editor = prefs.edit();
 
         nome = prefs.getString("nome","");
         mensagem = prefs.getString("mensagem","");
         tipoSanguineo = prefs.getString("tipoSanguineo","");
+
+        fieldSpinner = (Spinner) findViewById(R.id.spinner);
+        fieldNome = (EditText) findViewById(R.id.editText);
+        listTelefones = (ListView) findViewById(R.id.listTelefones);
+        listDoencas = (ListView) findViewById(R.id.listDoencas);
+
+        ArrayAdapter<String> tiposSanguineosAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, tiposSanguineos);
+        tiposSanguineosAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        fieldSpinner.setAdapter(tiposSanguineosAdapter);
+
         try {
 
             JSONArray jsonTelefones = new JSONArray(prefs.getString("telefones", "[]"));
             for (int i = 0; i < jsonTelefones.length(); i++) {
-                Log.d("jsonTelefones ", jsonTelefones.getInt(i) + "");
+                telefones.add(jsonTelefones.getString(i));
             }
 
             JSONArray jsonDoencas = new JSONArray(prefs.getString("doencas", "[]"));
             for (int i = 0; i < jsonDoencas.length(); i++) {
-                Log.d("jsonDoencas ", jsonTelefones.getInt(i) + "");
+                doencas.add(jsonDoencas.getString(i));
             }
+
+            ArrayAdapter<String> listaTelefonesAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, telefones);
+            ArrayAdapter<String> listaDoencasAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, doencas);
+
+            listTelefones.setAdapter(listaTelefonesAdapter);
+            listDoencas.setAdapter(listaDoencasAdapter);
 
 
 
@@ -50,7 +77,15 @@ public class PerfilActivity extends ActionBarActivity {
 
     }
 
-
+    /*
+    JSONArray jsonArray = new JSONArray();
+    jsonArray.put(1);
+    jsonArray.put(2);
+    Editor editor = prefs.edit();
+    editor.putString("key", jsonArray.toString());
+    System.out.println(jsonArray.toString());
+    editor.commit();
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

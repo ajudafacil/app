@@ -21,14 +21,16 @@ public class MainActivity extends ActionBarActivity {
     Button info_action;
     Button emergency_action;
     final Context context = this;
-    SharedPreferences prefs = this.getSharedPreferences("ajudafacil", 0);
-    SharedPreferences.Editor editor = prefs.edit();
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        prefs = getSharedPreferences("ajudafacil", 0);
+        editor = prefs.edit();
 
         perfil_action = (Button) findViewById(R.id.perfil_action);
         info_action = (Button) findViewById(R.id.info_action);

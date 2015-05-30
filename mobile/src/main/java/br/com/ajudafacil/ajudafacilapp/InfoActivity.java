@@ -11,14 +11,15 @@ import org.json.JSONArray;
 
 
 public class InfoActivity extends ActionBarActivity {
-    SharedPreferences prefs = this.getSharedPreferences("ajudafacil", 0);
-    SharedPreferences.Editor editor = prefs.edit();
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
-
+        prefs = getSharedPreferences("ajudafacil", 0);
+        editor = prefs.edit();
 
         try {
             JSONArray jsonArray2 = new JSONArray(prefs.getString("key", "[]"));
